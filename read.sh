@@ -9,11 +9,11 @@ else
     # check supplied inline password 
     if [ "$2" == "" ]; then
       read -s -p "> Input passphrase read the content: " INP_PASS
+      echo -e "\n"
     else
       INP_PASS=$2
     fi
-
-    echo -e "\n"
+    
     openssl enc -aes-256-cbc -pbkdf2 -in $FILE_RSA -d -k $INP_PASS
   else
     echo "file not exist"
