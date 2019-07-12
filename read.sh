@@ -5,7 +5,14 @@ if [ "$1" == "" ]; then
 else
   FILE_RSA=$1
   if test -f $FILE_RSA; then
-    read -s -p "> Input passphrase read the content: " INP_PASS
+
+    # check supplied inline password 
+    if [ "$2" == "" ]; then
+      read -s -p "> Input passphrase read the content: " INP_PASS
+    else
+      INP_PASS=$2
+    fi
+
     echo -e "\n"
     openssl enc -aes-256-cbc -pbkdf2 -in $FILE_RSA -d -k $INP_PASS
   else

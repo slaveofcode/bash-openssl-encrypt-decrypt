@@ -6,6 +6,8 @@ Simple encryption-decription method using Symmetric-key encryption by openssl
 
 > ./generate.sh ~/.ssh/id_rsa
 
+It will asking passphrase to set with the encryption process
+
 > Input passphrase for encypt: < type the passphrase >
 
 The encrypted file will saved on `files` directory.
@@ -18,7 +20,13 @@ By running the command above, the result of decription value will be shown on th
 
 > ./read.sh ./files/someFileName.dat
 
+It will ask for the passphrase
+
 > Input passphrase read the content: < type the passphrase >
+
+### Read with inline passphrase
+
+> ./read.sh ./files/someFileName.dat thepasscode
 
 ### Result on File
 
